@@ -1,5 +1,4 @@
-image:
-  file: Dockerfile
+image: inok2341/builder:latest
 
 tasks:
   - before: >
