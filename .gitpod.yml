@@ -1,4 +1,4 @@
-image: fr3akyphantom/droid-builder:latest
+dockerfile: Dockerfile
 tasks:
   - before: >
       git config --global --unset credential.helper
