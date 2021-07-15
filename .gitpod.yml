@@ -1,4 +1,6 @@
-dockerfile: Dockerfile
+image:
+  file: Dockerfile
+
 tasks:
   - before: >
       git config --global --unset credential.helper
