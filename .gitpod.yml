@@ -3,3 +3,5 @@ image: inok2341/builder:latest
 tasks:
   - before: >
       git config --global --unset credential.helper
+  - before: >
+      bash buildbot.sh
