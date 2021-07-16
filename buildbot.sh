@@ -1,12 +1,11 @@
 # Rom building script for CircleCI
 # coded by bruh™ aka Live0verfl0w
 
-MANIFEST_LINK=git://github.com/ProjectSakura/android.git
-BRANCH=10
-ROM_NAME=lineage
-DEVICE_CODENAME=dreamlte
-GITHUB_USER=Exynos-nigg
-GITHUB_EMAIL=vsht700@gmail.com
+MANIFEST_LINK=https://github.com/PixelOS-Pixelish
+BRANCH=eleven
+ROM_NAME=Pixel
+GITHUB_USER=I-n-o-k
+GITHUB_EMAIL=inok.dr189@gmail.com
 WORK_DIR=$(pwd)/${ROM_NAME}
 JOBS=nproc
 
@@ -17,25 +16,14 @@ git config --global user.email ${GITHUB_EMAIL}
 # make directories
 mkdir ${WORK_DIR} && cd ${WORK_DIR}
 
-# set up rom repo
-repo init --depth=1 -u ${MANIFEST_LINK} -b ${BRANCH}
-repo sync --current-branch --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j${JOBS}
-
-# clone device sources
-git clone -b lineage-17.1 https://github.com/Sakura-Devices/device_samsung_dreamlte.git device/samsung/dreamlte 
-
-git clone -b lineage-17.1 https://github.com/Sakura-Devices/device_samsung_universal8895-common.git device/samsung/universal8895-common 
-
-git clone -b pie https://github.com/Sakura-Devices/kernel_samsung_universal8895.git kernel/samsung/universal8895 
-
-git clone -b lineage-17.1 https://github.com/Sakura-Devices/vendor_samsung_dreamlte.git vendor/samsung/dreamlte 
-
-git clone -b lineage-17.1 https://github.com/Sakura-Devices/vendor_samsung_universal8895-common.git vendor/samsung/universal8895-common 
-
-git clone -b lineage-17.1 https://github.com/LineageOS/android_hardware_samsung.git hardware/samsung
+device
+git clone --depth=1 https://github.com/MiBengal-Development/Device_xiaomi_J --single-branch -b PixelOs device/xiaomi/juice
+git clone --depth=1 https://github.com/I-n-o-k/prebuilt_vendor_juice --single-branch -b 11 vendor/xiaomi/juice
+git clone --depth=1 https://github.com/MiBengal-Development/android_kernel_xiaomi_bengal  --single-branch -b 11.0 kernel/xiaomi/juice
+git clone --depth=1 https://github.com/GengKapak/GengKapak-clang --single-branch -b 13 prebuilts/clang/host/linux-x86/clang-gengkapak
 
 # Start building!
 . build/envsetup.sh
-lunch lineage_${DEVICE_CODENAME}-userdebug
+lunch aosp-juice-userdebug
 mka bacon -j${JOBS}
 
