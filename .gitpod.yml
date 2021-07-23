@@ -1,4 +1,4 @@
-image: inok2341/builder:latest
+image: cimg/android:30.0
 
 tasks:
   - before: >
