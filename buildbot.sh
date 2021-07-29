@@ -17,13 +17,15 @@ git config --global user.email ${GITHUB_EMAIL}
 mkdir ${WORK_DIR} && cd ${WORK_DIR}
 
 device
-git clone --depth=1 https://github.com/boedhack99/local_manifest -b R --single-branch -b .repo/local_manifests
+git clone --depth=1 https://github.com/boedhack99/local_manifest -b aex --single-branch -b .repo/local_manifests
 #git clone --depth=1 https://github.com/I-n-o-k/prebuilt_vendor_juice --single-branch -b 11 vendor/xiaomi/juice
 #git clone --depth=1 https://github.com/MiBengal-Development/android_kernel_xiaomi_bengal  --single-branch -b 11.0 kernel/xiaomi/juice
 #git clone --depth=1 https://github.com/GengKapak/GengKapak-clang --single-branch -b 13 prebuilts/clang/host/linux-x86/clang-gengkapak
 
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+
 # Start building!
 . build/envsetup.sh
 lunch aosp_mojito-userdebug
-m aex  -j${JOBS}
+m aex
 
