@@ -1,6 +1,6 @@
 FROM gitpod/workspace-full:latest
 
-LABEL maintainer="inok <inok189@gmail.com>"
+LABEL maintainer="boedhack99 <boedhack@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
