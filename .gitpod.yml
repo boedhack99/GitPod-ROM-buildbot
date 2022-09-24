@@ -1,4 +1,4 @@
-image: cimg/android:30.0
+image: androidsdk/android-31:latest
 
 tasks:
   - before: >
